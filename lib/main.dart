@@ -28,7 +28,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
-  List<Widget> _pages = List();
+  List<Widget> _pages = [];
   List<String> _titles = [
     "Rabbit Online Judge",
     "Contests",
@@ -45,11 +45,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    _pages
-      ..add(ProblemsView())
-      ..add(ContestsView())
-      ..add(SubmissionsView())
-      ..add(UserView());
+    _pages = [ProblemsView(), ContestsView(), SubmissionsView(), UserView()];
   }
 
   @override
