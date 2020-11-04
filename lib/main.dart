@@ -29,7 +29,12 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   List<Widget> _pages = List();
-  List<String> _titles = ["Rabbit Online Judge", "Contests", "Submissions", "User"];
+  List<String> _titles = [
+    "Rabbit Online Judge",
+    "Contests",
+    "Submissions",
+    "User"
+  ];
 
   void _handleItemTapped(int index) {
     setState(() {
@@ -40,7 +45,8 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    _pages..add(ProblemsView())
+    _pages
+      ..add(ProblemsView())
       ..add(ContestsView())
       ..add(SubmissionsView())
       ..add(UserView());
@@ -55,29 +61,19 @@ class _MainPageState extends State<MainPage> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.list), label: "Problems"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.list),
-                label: "Problems"
-            ),
+                icon: Icon(Icons.auto_awesome), label: "Contests"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.auto_awesome),
-                label: "Contests"
-            ),
+                icon: Icon(Icons.history), label: "Submissions"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.history),
-                label: "Submissions"
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_rounded),
-                label: "User"
-            ),
+                icon: Icon(Icons.account_circle_rounded), label: "User"),
           ],
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.blue,
           unselectedItemColor: Colors.black45,
           type: BottomNavigationBarType.fixed,
-          onTap: _handleItemTapped
-      ),
+          onTap: _handleItemTapped),
     );
   }
 }

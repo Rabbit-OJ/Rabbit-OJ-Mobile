@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rabbit_oj_mobile/models/problem_item.dart';
+import 'package:rabbit_oj_mobile/views/problem_detail.dart';
 
 class ProblemsView extends StatefulWidget {
   @override
@@ -46,8 +47,13 @@ class _ProblemViewState extends State<ProblemsView> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4.0)),
             child: InkWell(
-                onTap:
-                    defaultTargetPlatform == TargetPlatform.iOS ? null : () {},
+                onTap: () {
+                  Navigator.push(
+                      ctx,
+                      CupertinoPageRoute(
+                          title: "Problem Details",
+                          builder: (context) => ProblemDetailView()));
+                },
                 child: Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Row(
