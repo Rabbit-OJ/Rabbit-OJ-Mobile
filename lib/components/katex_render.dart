@@ -21,7 +21,6 @@ class TeXViewMarkdownView extends StatelessWidget {
             style: TeXViewStyle(
               margin: TeXViewMargin.all(2),
               padding: TeXViewPadding.all(2),
-              elevation: 10,
               backgroundColor: Colors.white,
             ),
             loadingWidgetBuilder: (context) => Center(
