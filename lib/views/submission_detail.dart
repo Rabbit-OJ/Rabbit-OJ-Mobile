@@ -34,9 +34,6 @@ class _SubmissionDetailViewState extends State<SubmissionDetailView> {
           title: Text("Submission Details"),
           backgroundColor: appBarBackgroundColor,
         ),
-        body: Padding(
-            padding: EdgeInsets.only(top: 12),
-            child: DisplayListComponent(display: submissionDisplayList)
-    ));
+        body: DisplayListComponent(display: submissionDisplayList));
   }
 }

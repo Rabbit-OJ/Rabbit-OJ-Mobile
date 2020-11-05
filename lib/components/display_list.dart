@@ -43,6 +43,8 @@ class DisplayListComponent extends StatelessWidget {
   @override
   Widget build(BuildContext ctx) {
     return ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
       itemBuilder: _listBuilder,
     );
   }
