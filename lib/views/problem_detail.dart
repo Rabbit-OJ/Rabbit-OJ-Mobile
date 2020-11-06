@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rabbit_oj_mobile/components/katex_render.dart';
 import 'package:rabbit_oj_mobile/components/problem_detail.dart';
 import 'package:rabbit_oj_mobile/components/submission_list.dart';
 import 'package:rabbit_oj_mobile/models/problem_detail.dart';
@@ -32,6 +33,7 @@ $x^4$
 
     _pages = [
       ProblemDetailComponent(problemDetail: problemDetail),
+      TeXViewMarkdownView(data: problemDetail.content),
       Text("Coming in the future."),
       SubmissionListComponent(data: [
         SubmissionLite.demo(1, "AC"),
@@ -57,7 +59,9 @@ $x^4$
         bottomNavigationBar: BottomNavigationBar(
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                  icon: Icon(Icons.assessment_outlined), label: "Problem"),
+                  icon: Icon(Icons.assessment_outlined), label: "Details"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.info), label: "Descriptions"),
               BottomNavigationBarItem(icon: Icon(Icons.check), label: "Submit"),
               BottomNavigationBarItem(
                   icon: Icon(Icons.history), label: "Submissions"),
