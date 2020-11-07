@@ -21,11 +21,6 @@ class ProblemDetailComponent extends StatelessWidget {
       Display("Created", problemDetail.createdAt.toIso8601String()),
     ];
 
-    return Scaffold(
-        body: Column(
-            children: [
-          Expanded(child: DisplayListComponent(display: problemDisplayList)),
-          Expanded(child: TeXViewMarkdownView(data: problemDetail.content))
-        ]));
+    return DisplayListComponent(display: problemDisplayList);
   }
 }
