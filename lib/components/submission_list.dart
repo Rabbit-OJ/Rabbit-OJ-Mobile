@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rabbit_oj_mobile/models/submission.dart';
-import 'package:rabbit_oj_mobile/views/submission_detail.dart';
+import 'package:rabbit_oj_mobile/views/detail/submission.dart';
 
 class _SubmissionViewTag {
   String status;

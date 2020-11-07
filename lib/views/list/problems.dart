@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rabbit_oj_mobile/models/problem_item.dart';
-import 'package:rabbit_oj_mobile/views/problem_detail.dart';
+import 'package:rabbit_oj_mobile/views/detail/problem.dart';
 
 class ProblemsView extends StatefulWidget {
   @override
@@ -22,7 +22,12 @@ class _ProblemViewState extends State<ProblemsView> {
     _ProblemViewTag("Medium", Colors.deepOrangeAccent),
     _ProblemViewTag("Hard", Colors.redAccent),
   ];
+
   List<ProblemItem> _data;
+
+  Future<List<ProblemItem>> getList(int page) async {
+    Response response = await Dio().get("");
+  }
 
   @override
   void initState() {

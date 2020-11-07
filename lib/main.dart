@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rabbit_oj_mobile/views/contests.dart';
-import 'package:rabbit_oj_mobile/views/problems.dart';
-import 'package:rabbit_oj_mobile/views/submissions.dart';
+import 'package:rabbit_oj_mobile/views/list/contests.dart';
+import 'package:rabbit_oj_mobile/views/list/problems.dart';
+import 'package:rabbit_oj_mobile/views/list/submissions.dart';
 import 'package:rabbit_oj_mobile/views/user.dart';
 
 void main() {
