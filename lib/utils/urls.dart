@@ -3,81 +3,79 @@ const String BACKEND_URL =
     inProduction ? "https://oj.6rabbit.com/api" : "http://localhost:8888";
 
 class _Question {
-  static String getList(String page) => "$BACKEND_URL/question/list/$page";
+  String getList(String page) => "$BACKEND_URL/question/list/$page";
 
-  static String optionsItem(String tid) => "$BACKEND_URL/question/item/$tid";
-  static String postCreate = "$BACKEND_URL/question/item";
+  String optionsItem(String tid) => "$BACKEND_URL/question/item/$tid";
+  String postCreate = "$BACKEND_URL/question/item";
 
-  static String putEdit(String tid) => "$BACKEND_URL/question/item/$tid";
+  String putEdit(String tid) => "$BACKEND_URL/question/item/$tid";
 
-  static String postSubmit(String tid) => "$BACKEND_URL/question/submit/$tid";
+  String postSubmit(String tid) => "$BACKEND_URL/question/submit/$tid";
 
-  static String getRecord(String tid, String page) =>
+  String getRecord(String tid, String page) =>
       "$BACKEND_URL/question/record/$tid/$page";
 
-  static String optionsJudge(String tid) => "$BACKEND_URL/question/judge/$tid";
+  String optionsJudge(String tid) => "$BACKEND_URL/question/judge/$tid";
 }
 
 class _User {
-  static String getInfo(String username) => "$BACKEND_URL/user/info/$username";
+  String getInfo(String username) => "$BACKEND_URL/user/info/$username";
 
-  static String avatar(String uid) => "$BACKEND_URL/user/avatar/$uid";
-  static String getMy = "$BACKEND_URL/user/my";
-  static String getToken = "$BACKEND_URL/user/token";
-  static String postChangeAvatar = "$BACKEND_URL/user/my/avatar";
-  static String postLogin = "$BACKEND_URL/user/login";
-  static String postRegister = "$BACKEND_URL/user/register";
+  String avatar(String uid) => "$BACKEND_URL/user/avatar/$uid";
+  String getMy = "$BACKEND_URL/user/my";
+  String getToken = "$BACKEND_URL/user/token";
+  String postChangeAvatar = "$BACKEND_URL/user/my/avatar";
+  String postLogin = "$BACKEND_URL/user/login";
+  String postRegister = "$BACKEND_URL/user/register";
 }
 
 class _Submission {
-  static String getUserList(String uid, String page) =>
+  String getUserList(String uid, String page) =>
       "$BACKEND_URL/submission/list/$uid/$page";
 
-  static String getDetail(String sid) => "$BACKEND_URL/submission/detail/$sid";
+  String getDetail(String sid) => "$BACKEND_URL/submission/detail/$sid";
 
-  static String postCode(String sid) => "$BACKEND_URL/submission/code/$sid";
-  static String getLanguage = "$BACKEND_URL/submission/language";
+  String postCode(String sid) => "$BACKEND_URL/submission/code/$sid";
+  String getLanguage = "$BACKEND_URL/submission/language";
 
-  static String socket(String sid) {
+  String socket(String sid) {
     String backendSocketUrl = BACKEND_URL.replaceAll(RegExp("/^http/"), "ws");
     return "$backendSocketUrl/ws/$sid";
   }
 }
 
 class _Contest {
-  static String putEdit(String cid) => "$BACKEND_URL/contest/info/$cid";
+  String putEdit(String cid) => "$BACKEND_URL/contest/info/$cid";
 
-  static String putQuestion(String cid) =>
-      "$BACKEND_URL/contest/question/$cid";
+  String putQuestion(String cid) => "$BACKEND_URL/contest/question/$cid";
 
-  static String getList(String page) => "$BACKEND_URL/contest/list/$page";
+  String getList(String page) => "$BACKEND_URL/contest/list/$page";
 
-  static String getMyInfo(String cid) => "$BACKEND_URL/contest/my/info/$cid";
+  String getMyInfo(String cid) => "$BACKEND_URL/contest/my/info/$cid";
 
-  static String postSubmit(String cid, String id) =>
+  String postSubmit(String cid, String id) =>
       "$BACKEND_URL/contest/submit/$cid/$id";
 
-  static String getClarify(String cid) => "$BACKEND_URL/contest/clarify/$cid";
-  static String postClarifyAdd = "$BACKEND_URL/contest/clarify/add";
+  String getClarify(String cid) => "$BACKEND_URL/contest/clarify/$cid";
+  String postClarifyAdd = "$BACKEND_URL/contest/clarify/add";
 
-  static String getSubmissionList(String cid) =>
+  String getSubmissionList(String cid) =>
       "$BACKEND_URL/contest/submission/list/$cid";
 
-  static String getSubmissionOne(String cid, String sid) =>
+  String getSubmissionOne(String cid, String sid) =>
       "$BACKEND_URL/contest/submission/one/$cid/$sid";
 
-  static String getScoreboard(String cid, String page) =>
+  String getScoreboard(String cid, String page) =>
       "$BACKEND_URL/contest/scoreboard/$cid/$page";
 
-  static String getInfo(String cid) => "$BACKEND_URL/contest/info/$cid";
+  String getInfo(String cid) => "$BACKEND_URL/contest/info/$cid";
 
-  static String getQuestions(String cid) =>
-      "$BACKEND_URL/contest/question/$cid";
+  String getQuestions(String cid) => "$BACKEND_URL/contest/question/$cid";
 
-  static String postRegister(String cid, String operation) =>
+  String postRegister(String cid, String operation) =>
       "$BACKEND_URL/contest/register/$cid/$operation";
 
-  static String socket(String cid, String uid) {
+  String socket(String cid, String uid) {
     String backendSocketUrl = BACKEND_URL.replaceAll(RegExp("/^http/"), "ws");
     return "$backendSocketUrl/contest/ws/$cid/$uid";
   }

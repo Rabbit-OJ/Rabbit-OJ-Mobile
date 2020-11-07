@@ -1,6 +1,9 @@
 import 'package:flutter/foundation.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rabbit_oj_mobile/models/contest.dart';
+import 'package:rabbit_oj_mobile/models/general_response.dart';
+import 'package:rabbit_oj_mobile/utils/urls.dart';
 
 class ContestsView extends StatefulWidget {
   @override
@@ -15,12 +18,24 @@ class _ContestViewTag {
 }
 
 class _ContestsViewState extends State<ContestsView> {
-  static List<_ContestViewTag> tag = [
+  List<_ContestViewTag> tag = [
     _ContestViewTag("Coming", Colors.greenAccent),
     _ContestViewTag("Doing", Colors.deepOrangeAccent),
     _ContestViewTag("Finished", Colors.blueAccent),
   ];
   List<Contest> _data;
+
+  Future<GeneralListResponse<Contest>> getList(int page) async {
+    Response response =
+        await Dio().get(ApiUrl.contest.getList(page.toString()));
+    GeneralResponse<GeneralListResponse<Contest>> data = response.data;
+
+    if (data.code == 200) {
+      return data.message;
+    } else {
+      throw (data.message);
+    }
+  }
 
   @override
   void initState() {

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:rabbit_oj_mobile/models/general_response.dart';
 import 'package:rabbit_oj_mobile/models/problem_item.dart';
+import 'package:rabbit_oj_mobile/utils/urls.dart';
 import 'package:rabbit_oj_mobile/views/detail/problem.dart';
 
 class ProblemsView extends StatefulWidget {
@@ -17,7 +19,7 @@ class _ProblemViewTag {
 }
 
 class _ProblemViewState extends State<ProblemsView> {
-  static List<_ProblemViewTag> tag = [
+  List<_ProblemViewTag> tag = [
     _ProblemViewTag("Easy", Colors.greenAccent),
     _ProblemViewTag("Medium", Colors.deepOrangeAccent),
     _ProblemViewTag("Hard", Colors.redAccent),
@@ -25,8 +27,15 @@ class _ProblemViewState extends State<ProblemsView> {
 
   List<ProblemItem> _data;
 
-  Future<List<ProblemItem>> getList(int page) async {
-    Response response = await Dio().get("");
+  Future<GeneralListResponse<ProblemItem>> getList(int page) async {
+    Response response = await Dio().get(ApiUrl.question.getList(page.toString()));
+    GeneralResponse<GeneralListResponse<ProblemItem>> data = response.data;
+
+    if (data.code == 200) {
+      return data.message;
+    } else {
+      throw (data.message);
+    }
   }
 
   @override

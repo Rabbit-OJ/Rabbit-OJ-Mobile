@@ -17,7 +17,7 @@ class SubmissionListComponent extends StatelessWidget {
   SubmissionListComponent({Key key, this.data = const <SubmissionLite>[]})
       : super(key: key);
 
-  static List<_SubmissionViewTag> tag = [
+  List<_SubmissionViewTag> tag = [
     _SubmissionViewTag("Accepted", Colors.greenAccent),
     _SubmissionViewTag("Doing", Colors.blueAccent),
     _SubmissionViewTag("Failed", Colors.redAccent),
